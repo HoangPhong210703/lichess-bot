@@ -80,7 +80,7 @@ piece_position_scores = {"N": knight_scores,
 
 CHECKMATE = 1000
 STALEMATE = 0
-DEPTH = 4
+DEPTH = 3
 
 # Constants for move scoring (added for move ordering)
 CAPTURE_BONUS = 1000
