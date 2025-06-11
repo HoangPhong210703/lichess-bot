@@ -1,0 +1,67 @@
+token: "xxxxxxxxxxxxxxxxxx"    # Add your Lichess OAuth2 token here
+url: "https://lichess.org/"
+
+engine:
+  dir: "./engines/"
+  name: "ChessAI"
+  protocol: "homemade"
+  ponder: false
+
+  polyglot:
+    enabled: true
+    book:
+      standard:
+        - engines/books/Performance.bin
+    min_weight: 1
+    selection: "weighted_random"
+    max_depth: 20
+    normalization: "none"
+
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000
+    resign_moves: 3
+    offer_draw_enabled: true
+    offer_draw_score: 0
+    offer_draw_moves: 10
+    offer_draw_pieces: 10
+
+abort_time: 30
+fake_think_time: false
+move_overhead: 2000
+
+challenge:
+  concurrency: 1
+  sort_by: "best"
+  accept_bot: true
+  max_increment: 180
+  min_increment: 0
+  max_base: 1800
+  min_base: 0
+  variants:
+    - standard
+  time_controls:
+    - bullet
+    - blitz
+    - rapid
+  modes:
+    - casual
+    - rated
+
+matchmaking:
+  allow_matchmaking: true
+  challenge_variant: "standard"
+  challenge_timeout: 30
+  challenge_initial_time: 300  # 5 minutes
+  challenge_increment: 3       # 3 seconds increment
+  challenge_days: null
+  opponent_min_rating: 400
+  opponent_max_rating: 2000
+  opponent_rating_difference: 500
+  opponent_allow_tos_violation: true
+  challenge_mode: "random"    # randomly choose opponents
+  challenge_filter: "none"    # no filtering
+
+greeting:
+  hello: "Hi! I'm {me}, a chess AI bot. Good luck!"
+  goodbye: "Good game!"
